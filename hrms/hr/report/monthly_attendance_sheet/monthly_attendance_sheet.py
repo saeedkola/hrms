@@ -381,8 +381,8 @@ def get_rows(employee_details: dict, filters: Filters, holiday_map: dict, attend
 
 			leave_summary = get_leave_summary(employee, filters)
 			entry_exits_summary = get_entry_exits_summary(employee, filters)
-
-			row = {"employee": employee, "employee_name": details.employee_name,"total_days": get_total_days_in_month(filters)}
+			total_days = get_total_days_in_month(filters)
+			row = {"employee": employee, "employee_name": details.employee_name,"total_days": total_days}
 			set_defaults_for_summarized_view(filters, row)
 			row.update(attendance)
 			row.update(leave_summary)
