@@ -142,7 +142,7 @@ def get_columns(filters: Filters) -> list[dict]:
 				{
 					"label": _("Total No. of Days"),
 					"fieldname": "total_days",
-					"fieldtype": "Float",
+					"fieldtype": "Data",
 					"width": 140,
 				},
 			]
