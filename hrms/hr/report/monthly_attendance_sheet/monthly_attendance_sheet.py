@@ -139,6 +139,12 @@ def get_columns(filters: Filters) -> list[dict]:
 					"fieldtype": "Float",
 					"width": 140,
 				},
+				{
+					"label": _("Total No. of Days"),
+					"fieldname": "total_days",
+					"fieldtype": "Float",
+					"width": 140,
+				},
 			]
 		)
 	else:
@@ -376,7 +382,7 @@ def get_rows(employee_details: dict, filters: Filters, holiday_map: dict, attend
 			leave_summary = get_leave_summary(employee, filters)
 			entry_exits_summary = get_entry_exits_summary(employee, filters)
 
-			row = {"employee": employee, "employee_name": details.employee_name}
+			row = {"employee": employee, "employee_name": details.employee_name,"total_days": get_total_days_in_month(filters)}
 			set_defaults_for_summarized_view(filters, row)
 			row.update(attendance)
 			row.update(leave_summary)
